@@ -7,6 +7,10 @@ This file tracks package-facing release notes for `openminion`.
 
 ## Unreleased
 
+- `_validated_tool_arguments` now preserves explicitly supplied `None` fields via
+  `parsed.model_fields_set` instead of stripping them with `exclude_none=True`, while
+  continuing to omit unset optional parameters so Python defaults still apply.
+
 - The README's Python `Agent` snippet now declares `lookup_order` as
   `@tool(min_scope="READ_ONLY", idempotent=True)`, matching
   `examples/sdk/tool_agent.py`: the bare `@tool` was classified as a write with
