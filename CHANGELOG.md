@@ -7,6 +7,12 @@ This file tracks package-facing release notes for `openminion`.
 
 ## Unreleased
 
+- `Agent._coerce_output` now incrementally scans subsequent balanced JSON object spans
+  when prose contains an earlier non-matching `{...}` snippet before the structured output
+  object, stopping at the first valid candidate while raising
+  `AgentOutputValidationError` with the initial `ValidationError` when no candidate
+  validates.
+
 - The README's Python `Agent` snippet now declares `lookup_order` as
   `@tool(min_scope="READ_ONLY", idempotent=True)`, matching
   `examples/sdk/tool_agent.py`: the bare `@tool` was classified as a write with
