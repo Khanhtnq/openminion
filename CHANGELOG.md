@@ -7,6 +7,10 @@ This file tracks package-facing release notes for `openminion`.
 
 ## Unreleased
 
+- `subagent()` now forwards `parent.agent_id` and inherits `parent.model` when `model` is
+  not explicitly overridden, preserving runtime default profile resolution for unconfigured
+  parents and explicit child `model` overrides.
+
 - The README's Python `Agent` snippet now declares `lookup_order` as
   `@tool(min_scope="READ_ONLY", idempotent=True)`, matching
   `examples/sdk/tool_agent.py`: the bare `@tool` was classified as a write with
